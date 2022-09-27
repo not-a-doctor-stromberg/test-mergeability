@@ -1,0 +1,8 @@
+version: 2
+mergeable:
+  - when: pull_request.opened, pull_request.edited
+    name: Ensure all tasks (checkboxes) listed in the PR description have been completed!
+    validate:
+      - do: description
+        must_exclude: 
+          regex: '- \[ \]'
